@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="it.hxzy.com.cn.dao.TimeModelMapper" >
+  <resultMap id="BaseResultMap" type="it.hxzy.com.cn.domain.TimeModel" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="lession_time" property="lessionTime" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, lession_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_time
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_time
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="it.hxzy.com.cn.domain.TimeModel" >
+    insert into t_time (id, lession_time)
+    values (#{id,jdbcType=INTEGER}, #{lessionTime,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="it.hxzy.com.cn.domain.TimeModel" >
+    update t_time
+    <set >
+      <if test="lessionTime != null" >
+        lession_time = #{lessionTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="it.hxzy.com.cn.domain.TimeModel" >
+    update t_time
+    set lession_time = #{lessionTime,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+ 	 select * from  t_time order by lession_time
+  </select>
+  
+</mapper>
