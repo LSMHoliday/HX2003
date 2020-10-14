@@ -1,7 +1,0 @@
-utils\AjaxUtils.class
-utils\DBUtils.class
-it\hxzy\com\cn\controller\TeacherController.class
-it\hxzy\com\cn\service\ITeacherService.class
-it\hxzy\com\cn\dao\TeacherModelMapper.class
-it\hxzy\com\cn\domain\TeacherModel.class
-it\hxzy\com\cn\service\impl\TeacherServiceImpl.class
